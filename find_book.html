@@ -1,0 +1,33 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="form8.css">
+</head>
+
+<script>
+  function validateForm(){
+    var isbn = document.forms["myForm"]["isbn"].value;
+      
+      if (isbn == "" || isbn.length != 10) {
+        alert("ISBN is either empty or have incorrect format");
+      return false;
+      }
+  }
+</script>
+
+<body>
+<div class="center form-style-8">
+
+<h2>Find a book</h2>
+
+<p>Instruction:</p>
+<p>Enter a 10-digit ISBN number to find an entry in the BOOK relation.</p>
+<p>e.g. 0060935464(You will not be allowed to submit if you enter nothing or the format is incorrect)</p>
+
+<form name="myForm" action="find_book.php" onsubmit="return validateForm()" method="post">
+   ISBN:  <input type="text" name="isbn"><br>
+   <input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>

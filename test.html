@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="mgr.css">
+  <title></title>
+</head>
+<body>
+
+<div class="container">
+<h1 class="t">Management System</h1> 
+<hr>
+
+  <div class="content">
+    <h3>Hi, <?php echo $row['E_Fname']?> <?php echo $row['E_Lname']?>
+    <br>Your employee ID: <?php echo $row['Employee_ID']?></br>
+    Your position: <?php echo $row['Position']?>
+    </h3> 
+  </div>
+
+  <div class="function">
+      
+      <script>
+        function viewrelation(){
+          window.location='view_relation.php';
+        }
+
+        function addbook(){
+          window.location='add_book.html';
+        }
+
+        function delbook(){
+          window.location='del_book.html';
+        }
+
+        function viewtrans(){
+          window.location='Transaction_View.php';
+        }
+      </script>
+
+      <button onclick="viewrelation();" class="cancelbtn">View Relations</button>
+      <button onclick="addbook();" class="cancelbtn">Add a Book</button>
+      <button onclick="delbook();" class="cancelbtn">Delete a Book</button>
+      <button onclick="viewtrans();" class="cancelbtn">View Transaction</button>
+  
+  </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<head>
+<link rel="stylesheet" href="form.css">
+</head>
+
+<script>
+	function validateForm(){
+		var isbn = document.forms["myForm"]["ISBN"].value;
+  		
+  		if (isbn == "" || isbn.length != 10) {
+    		alert("ISBN is either empty or have incorrect format");
+    	return false;
+  		}
+	}
+</script>
+
+<title> Delete a book</title>
+<body>
+
+<div class="container">
+	<h1 class="signup">Delete a book</h1>
+
+	<p>Instruction:</p>
+	<p>Enter a 10-digit ISBN number to delete an entry in the BOOK relation.</p>
+	<p>e.g. 0060935464 (You will not be allowed to submit if you enter nothing or the format is incorrect)</p>
+	<hr>
+
+	<script>
+        function goback(){
+          window.location='mgr_log_in.php';
+        }
+  </script>
+
+	<form name="myForm" action="del_book.php" onsubmit="return validateForm()" method="post">
+   		ISBN:  <input type="text" name="ISBN"><br>
+      <button class="signupbtn" type="submit" value="Submit">Delete</button>
+	</form>
+
+    <div class="clearfix">
+        <button onclick="goback();" class="cancelbtn">Back</button>
+    </div>
+    
+</div>
+
+</body>
+</html>

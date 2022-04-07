@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Homepage</title>
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Welcome to the work man bookstore</h1>
+
+<div class="topnav">
+	<a href="sign_up.html">Sign Up</a> |
+	<a href="log_in.html">Log In</a>
+</div>
+
+</header>
+
+<div class="search">
+
+	<img class="fb" src="Find_a_Book.jpg" style="width:400px;height:200px;">
+
+	<script>
+		function searchisbn(){
+			 document.myForm.action = "find_book.php";
+			 alert(document.user_form.action);
+  			 return false;
+		}
+
+		function searchbn(){
+			 document.myForm.action = "find_book_bn.php";
+			 alert(document.user_form.action);
+  			 return false;
+		}
+
+		function searcha(){
+			 document.myForm.action = "find_book_a.php";
+			 alert(document.user_form.action);
+  			 return false;
+		}
+	</script>
+
+
+	<form name="myForm" method="post">
+
+		<div class="rbox">
+			<input type="radio" id="ISBN" name="searchb" value="ISBN" onclick="return searchisbn()">
+			<label for="ISBN">By ISBN</label>
+
+			<input type="radio" id="Bookname" name="searchb" value="Bookname" onclick="return searchbn()">
+			<label for="Bookname">By Book Name</label>
+
+			<input type="radio" id="Author" name="searchb" value="Author" onclick="return searcha()">
+			<label for="Author">By Author</label>
+		</div>
+
+
+		<div class="sbox">
+			<input class="searchbox" type="text" placeholder="Search for a book" name="result" required>
+		</div>
+
+		<script>
+			
+			function joke(){
+				alert("Working man, Working soul, Working people best of the world!")
+			}
+
+		</script>
+
+		<div class="sbutton">
+			<button class = "bt1" type="submit" value="Submit">Work it out</button>
+			<button class = "bt2" onclick="return joke()">Feel working?</button>
+		</div>
+	</form>
+	
+</div>
+
+
+<footer>
+	<a class="mli" href="mgr_login.php">Internal portal</a>
+	<p class="footnote">Webpage by TEAM9</p>
+</footer>
+
+</body>
+
+</html>

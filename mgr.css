@@ -1,0 +1,28 @@
+* {box-sizing: border-box}
+
+body {
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.container {
+  border:1px solid #ccc;
+  padding: 16px;
+}
+
+.content{text-align: center;}
+.function{text-align: center;}
+
+.bt {
+  background-color: AliceBlue;
+  color: black;
+  padding: 12px 15px;
+  margin: 8px 3px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.9;
+  width: 20%;
+}
+
+.bt:hover{ opacity: 1 }

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manage Employee</title>
+	<link rel="stylesheet" href="form.css">
+</head>
+<body>
+<div class="container">
+
+<h1 class="signup">Manage Employee</h1>
+
+<h2>Delete an employee record</h2>
+<hr>
+
+<script>
+  var regExp = /[a-zA-Z]/g;
+  var regex = /\d/g;
+  function validateForm1(){
+    var x = document.forms["myForm1"]["E_id"].value;
+    if (x.length != 3 || regExp.test(x)) {
+      alert("Wrong format!")
+      return false;
+    }
+  }
+
+  function validateForm(){
+    var x = document.forms["myForm"]["E_id"].value;
+    var y = document.forms["myForm"]["F_Name"].value;
+    var z = document.forms["myForm"]["L_Name"].value;
+    var psw = document.forms["myForm"]["Pwd"].value;
+    var reppsw = document.forms["myForm"]["repPwd"].value;
+    var pos = document.forms["myForm"]["Pos"].value;
+
+    if (x.length != 3 || regExp.test(x)) {
+      alert("Employee ID Wrong format!");
+      return false;
+    }
+
+    if(regex.test(y)){
+      alert("Please enter correct first name");
+      return false;
+    } else if(regex.test(z)){
+      alert("Please enter correct last name");
+      return false;
+    }
+
+    if (psw != reppsw) {
+      alert("Two Passwords are not the same");
+      return false;
+    }else if (psw.length < 6 || psw.length > 20) {
+      alert("Password length incorrect (6-20)")
+      return false;
+    }
+
+    if (regex.test(pos)) {
+      alert("Position Wrong format");
+      return false;
+    }
+  }
+</script>
+
+
+<form name="myForm1" action="del_emp.php" onsubmit="return validateForm1()" method="post">
+   Employee ID:  <input type="text" name="E_id"><br>
+
+   <script>
+        function goback(){
+          window.location='mgr_log_in.php';
+        }
+  </script>
+  
+      <button class="signupbtn" type="submit" value="Submit">Delete</button>
+
+</form>
+
+    <div class="clearfix">
+        <button onclick="goback();" class="cancelbtn">Back</button>
+    </div>
+<hr>
+
+<h2>Add an employee record</h2>
+<form name="myForm" action="add_emp.php" onsubmit="return validateForm()" method="post">
+   Employee ID:  <input type="text" name="E_id" required><br>
+   First Name: <input type="text" name="F_Name" required><br>
+   Last Name: <input type="text" name="L_Name" required><br>
+   Password: <input type="text" name="Pwd" required><br>
+   Repeat Password: <input type="text" name="repPwd" required><br>
+   Position: <input type="text" name="Pos" required><br>
+   <script>
+        function goback(){
+          window.location='mgr_log_in.php';
+        }
+  </script>
+  
+      <button class="signupbtn" type="submit" value="Submit">Add</button>
+
+</form>
+
+    <div class="clearfix">
+        <button onclick="goback();" class="cancelbtn">Back</button>
+    </div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head>
+<link rel="stylesheet" href="form.css">
+
+<script>
+  
+function validateForm() {
+
+  var regExp = /[a-zA-Z]/g;
+
+  var x = document.forms["myForm"]["B_Name"].value;
+  if (x == "") {
+    alert("Book Name must be filled out");
+    return false;
+  }
+
+  var isbn = document.forms["myForm"]["ISBN"].value;
+  if (isbn == "" || isbn.length != 10 || regExp.test(isbn)) {
+    alert("ISBN is either empty or have incorrect format");
+    return false;
+  } 
+
+  var author = document.forms["myForm"]["Author"].value;
+  if (author == "") {
+    alert("Author must be filled out");
+    return false;
+  } 
+
+  var pub = document.forms["myForm"]["Publisher"].value;
+  if (pub == "") {
+    alert("Publisher must be filled out");
+    return false;
+  }
+
+  var p = document.forms["myForm"]["Price"].value;
+  if (p == "" ||  p > 1000) {
+    alert("Price is either empty or have incorrect format");
+    return false;
+  }
+
+  var l = document.forms["myForm"]["Location"].value;
+  if (l.length > 2) {
+    alert("Incorrect Format, the format is 'A1': starting with a capital letter followed by a number");
+    return false;
+  }
+
+  var aw = document.forms["myForm"]["Award_winning"].value;
+  if (aw != 'N' && aw !='Y' && aw != "") {
+    alert("Incorrect Format, Please enter either N or Y");
+    return false;
+  }
+}
+
+</script>
+
+
+</head>
+<body>
+<div class="container">
+
+<h1 class="signup">Add a book</h1>
+
+<p>Instruction:</p>
+<p>There are 8 fields to fill in. Notice that Book Name,ISBN,Author,Publisher,Price can not be left empty.</p>
+<p>Some constraints:</p>
+<p>ISBN is a string of 10 numbers.</p>
+<p>Price must be less than 1000.</p>
+<p>Award_winning must be either left out or is "Y" or "N"</p>
+<p>e.g. A Tale of Two Cities,0486406510,(Literature),Charles Dickens,Dover Publications,5.99,(L1),(Y)</p>
+<p>The field in () is optional.</p>
+<hr>
+
+<form name="myForm" action="add_book.php" onsubmit="return validateForm()" method="post">
+   Book Name:  <input type="text" name="B_Name"><br>
+   ISBN:  <input type="text" name="ISBN"><br>
+   Genre:  <input type="text" name="Genre"><br>
+   Author: <input type="text" name="Author"><br>
+   Publisher: <input type="text" name="Publisher"><br>
+   Price: <input type="text" name="Price"><br>
+   Location: <input type="text" name="Location"><br>
+   Award Winning: <input type="text" name="Award_winning"><br>
+
+   <script>
+        function goback(){
+          window.location='mgr_log_in.php';
+        }
+  </script>
+  
+      <button class="signupbtn" type="submit" value="Submit">Add</button>
+
+</form>
+
+    <div class="clearfix">
+        <button onclick="goback();" class="cancelbtn">Back</button>
+    </div>
+
+</div>
+</body>
+</html>

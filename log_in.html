@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="log_in.css">
+  <title>Sign Up</title>
+</head>
+
+<body>
+
+<!-- code from https://www.w3schools.com/howto/howto_css_login_form.asp-->
+<form action="log_in.php" method="post">
+  <div class="imgcontainer">
+    <img src="dagong.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <script>
+        function homepage(){
+          window.location='Homepage.html';
+        }
+    </script>
+
+    <button type="submit" class="loginbtn" value="Submit">Login</button>
+    <button onclick="homepage();" class="cancelbtn">Homepage</button>
+  </div>
+
+</form>
+
+</body>
+</html>
